@@ -16,7 +16,7 @@ dotenv.config("./.env")
 const app = express();
 
     app.use(cors({
-        origin: '*',
+        origin: 'https://url-shortner-vuby.vercel.app',
         credentials: true
     }));
 
@@ -40,4 +40,4 @@ app.listen(3000,()=>{
     console.log("Server is running on http://localhost:3000");
 })
 
-// GET - Redirection 
+// GET - Redirection
