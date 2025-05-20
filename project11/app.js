@@ -15,19 +15,17 @@ dotenv.config("./.env")
 
 const app = express();
 
-    app.use(cors({
-        origin: 'https://url-shortner-vuby.vercel.app',
-        credentials: true
-    }));
+app.use(cors({
+    origin: 'http://localhost:5173', // your React app
+    credentials: true // 👈 this allows cookies to be sent
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 
 app.use(attachUser)
-app.get("/",(req,res)=>{
-    res.send("Welcome to URL Shortener API")
-})
+
 app.use("/api/user",user_routes)
 app.use("/api/auth",auth_routes)
 app.use("/api/create",short_url)
@@ -40,4 +38,4 @@ app.listen(3000,()=>{
     console.log("Server is running on http://localhost:3000");
 })
 
-// GET - Redirection
+// GET - Redirection 
